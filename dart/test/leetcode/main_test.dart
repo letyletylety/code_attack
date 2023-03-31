@@ -1,4 +1,4 @@
-import 'package:dart/leetcode/main.dart';
+import 'package:dart/leetcode/helpers/treenode.dart';
 import 'package:test/test.dart';
 
 void main() {

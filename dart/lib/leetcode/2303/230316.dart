@@ -1,4 +1,4 @@
-import 'main.dart' show TreeNode;
+import '../helpers/treenode.dart';
 
 class Solution {
 // 1 <= inorder.length <= 3000

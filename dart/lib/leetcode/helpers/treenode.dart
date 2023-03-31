@@ -1,7 +1,5 @@
 import 'dart:collection';
 
-import '230315.dart';
-
 class TreeNode {
   int val;
   TreeNode? left;
@@ -71,9 +69,4 @@ void main() {
   );
 
   final node = maker.makeTreeNode();
-
-  final sol = Solution();
-  final result = sol.isCompleteTree(node);
-  print(result);
-  print(sol.leaves);
 }
