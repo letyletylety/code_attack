@@ -18,3 +18,14 @@ List<List<List>> tripleNestedListWithSize(int z, int y, int x,
     ),
   );
 }
+
+/// get maximum value in the list
+int maxInList(List<int> candies) {
+  int ret = -1234567890;
+  for (int i = 0; i < candies.length; i++) {
+    if (ret < candies[i]) {
+      ret = candies[i];
+    }
+  }
+  return ret;
+}
