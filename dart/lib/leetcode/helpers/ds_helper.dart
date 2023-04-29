@@ -30,6 +30,7 @@ int maxInList(List<int> candies) {
   return ret;
 }
 
+/// pq
 class PriorityQueue<T> {
   List<T> _heap;
   final Comparator<T> _comparator;
@@ -99,5 +100,51 @@ class PriorityQueue<T> {
     final temp = _heap[i];
     _heap[i] = _heap[j];
     _heap[j] = temp;
+  }
+}
+
+/// a.k.a. dsu
+class UnionFind {
+  late List<int> group;
+  late List<int> rank;
+
+  UnionFind(int size) {
+    group = List.filled(size, 0);
+    rank = List.filled(size, 0);
+    for (int i = 0; i < size; i++) {
+      group[i] = i;
+    }
+  }
+
+  int find(node) {
+    if (group[node] != node) {
+      group[node] = find(group[node]);
+    }
+    return group[node];
+  }
+
+  void join(int node1, int node2) {
+    int group1 = find(node1);
+    int group2 = find(node2);
+
+    // node1 and node2 already belong to same group.
+    if (group1 == group2) {
+      return;
+    }
+
+    if (rank[group1] > rank[group2]) {
+      group[group2] = group1;
+    } else if (rank[group1] < rank[group2]) {
+      group[group1] = group2;
+    } else {
+      group[group1] = group2;
+      rank[group2] += 1;
+    }
+  }
+
+  bool areConnected(int node1, int node2) {
+    final group1 = find(node1);
+    final group2 = find(node2);
+    return group1 == group2;
   }
 }
